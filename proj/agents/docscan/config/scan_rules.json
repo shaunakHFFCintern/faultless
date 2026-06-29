@@ -1,0 +1,25 @@
+{
+  "ignored_directories": [
+    ".git",
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    ".next",
+    ".cache",
+    "venv",
+    "tmp",
+    "log",
+    "public",
+    "vendor",
+    "cypress"
+  ],
+  "allowed_extensions": [
+    ".js",
+    ".jsx",
+    ".ts",
+    ".tsx",
+    ".vue",
+    ".json"
+  ]
+}

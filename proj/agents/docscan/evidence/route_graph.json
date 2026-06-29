@@ -1,0 +1,538 @@
+{
+  "routes": [
+    {
+      "route": "/unread-messages",
+      "name": "unread-messages",
+      "parent": "app/javascript/widget/router.js",
+      "entry": "Unknown",
+      "dependencies": [],
+      "protected": false
+    },
+    {
+      "route": "/campaigns",
+      "name": "campaigns",
+      "parent": "app/javascript/widget/router.js",
+      "entry": "Unknown",
+      "dependencies": [],
+      "protected": false
+    },
+    {
+      "route": "/prechat-form",
+      "name": "prechat-form",
+      "parent": "app/javascript/widget/router.js",
+      "entry": "Unknown",
+      "dependencies": [],
+      "protected": false
+    },
+    {
+      "route": "/messages",
+      "name": "messages",
+      "parent": "app/javascript/widget/router.js",
+      "entry": "Unknown",
+      "dependencies": [],
+      "protected": false
+    },
+    {
+      "route": "/article",
+      "name": "article-viewer",
+      "parent": "app/javascript/widget/router.js",
+      "entry": "Unknown",
+      "dependencies": [],
+      "protected": false
+    },
+    {
+      "route": "accounts/:accountId",
+      "name": "accounts/:accountId",
+      "parent": "app/javascript/dashboard/routes/dashboard/dashboard.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/Dashboard.vue",
+      "dependencies": [
+        "app/javascript/dashboard/components-next/call/FloatingCallWidget.vue",
+        "app/javascript/dashboard/components/copilot/CopilotContainer.vue",
+        "app/javascript/dashboard/components-next/sidebar/MobileSidebarLauncher.vue",
+        "app/javascript/dashboard/composables/useAccount.js",
+        "app/javascript/dashboard/components/widgets/modal/WootKeyShortcutModal.vue",
+        "app/javascript/dashboard/routes/dashboard/upgrade/UpgradePage.vue",
+        "app/javascript/dashboard/components-next/copilot/CopilotLauncher.vue",
+        "app/javascript/dashboard/components/app/AddAccountModal.vue",
+        "app/javascript/dashboard/constants/globals.js",
+        "app/javascript/dashboard/composables/useUISettings.js",
+        "app/javascript/dashboard/routes/dashboard/commands/commandbar.vue",
+        "app/javascript/dashboard/stores/calls.js"
+      ],
+      "protected": false
+    },
+    {
+      "route": "no-accounts",
+      "name": "no_accounts",
+      "parent": "app/javascript/dashboard/routes/dashboard/dashboard.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/noAccounts/Index.vue",
+      "dependencies": [
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/components-next/button/Button.vue",
+        "app/javascript/dashboard/api/auth.js",
+        "app/javascript/dashboard/components/widgets/EmptyState.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "list",
+      "name": "sla_list",
+      "parent": "app/javascript/dashboard/routes/dashboard/settings/sla/sla.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/settings/sla/Index.vue",
+      "dependencies": [
+        "app/javascript/dashboard/routes/dashboard/settings/SettingsLayout.vue",
+        "app/javascript/dashboard/components-next/icon/Icon.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/sla/SLAPaywallEnterprise.vue",
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/dashboard/components-next/button/Button.vue",
+        "app/javascript/dashboard/components-next/label/Label.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/components/BaseSettingsHeader.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/sla/AddSLA.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "agent",
+      "name": "agent_reports",
+      "parent": "app/javascript/dashboard/routes/dashboard/settings/reports/reports.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/settings/reports/AgentReports.vue",
+      "dependencies": [
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/WootReports.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "inboxes",
+      "name": "inbox_reports",
+      "parent": "app/javascript/dashboard/routes/dashboard/settings/reports/reports.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/settings/reports/InboxReports.vue",
+      "dependencies": [
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/WootReports.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "label",
+      "name": "label_reports",
+      "parent": "app/javascript/dashboard/routes/dashboard/settings/reports/reports.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/settings/reports/LabelReports.vue",
+      "dependencies": [
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/WootReports.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "teams",
+      "name": "team_reports",
+      "parent": "app/javascript/dashboard/routes/dashboard/settings/reports/reports.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/settings/reports/TeamReports.vue",
+      "dependencies": [
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/WootReports.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "overview",
+      "name": "account_overview_reports",
+      "parent": "app/javascript/dashboard/routes/dashboard/settings/reports/reports.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/settings/reports/LiveReports.vue",
+      "dependencies": [
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/ReportHeader.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/heatmaps/ConversationHeatmapContainer.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/AgentLiveReportContainer.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/heatmaps/ResolutionHeatmapContainer.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/TeamLiveReportContainer.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/StatsLiveReportsContainer.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "conversation",
+      "name": "conversation_reports",
+      "parent": "app/javascript/dashboard/routes/dashboard/settings/reports/reports.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/settings/reports/Index.vue",
+      "dependencies": [
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/ReportHeader.vue",
+        "app/javascript/dashboard/helper/AnalyticsHelper/events.js",
+        "app/javascript/dashboard/helper/downloadHelper.js",
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/dashboard/components-next/button/Button.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/constants.js",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/ReportFilters.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/ReportContainer.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "sla",
+      "name": "sla_reports",
+      "parent": "app/javascript/dashboard/routes/dashboard/settings/reports/reports.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/settings/reports/SLAReports.vue",
+      "dependencies": [
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/ReportHeader.vue",
+        "app/javascript/dashboard/helper/downloadHelper.js",
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/SLA/SLATable.vue",
+        "app/javascript/dashboard/components-next/button/Button.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/SLA/SLAReportFilters.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/SLA/SLAMetrics.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "csat",
+      "name": "csat_reports",
+      "parent": "app/javascript/dashboard/routes/dashboard/settings/reports/reports.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/settings/reports/CsatResponses.vue",
+      "dependencies": [
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/ReportHeader.vue",
+        "app/javascript/dashboard/helper/AnalyticsHelper/events.js",
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/CsatTable.vue",
+        "app/javascript/dashboard/helper/downloadHelper.js",
+        "app/javascript/dashboard/featureFlags.js",
+        "app/javascript/dashboard/components-next/button/Button.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/Csat/CsatFilters.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/CsatMetrics.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "bot",
+      "name": "bot_reports",
+      "parent": "app/javascript/dashboard/routes/dashboard/settings/reports/reports.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/settings/reports/BotReports.vue",
+      "dependencies": [
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/ReportHeader.vue",
+        "app/javascript/dashboard/helper/AnalyticsHelper/events.js",
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/constants.js",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/BotMetrics.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/components/ReportFilters.vue",
+        "app/javascript/dashboard/routes/dashboard/settings/reports/ReportContainer.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "accounts/:accountId/captain/:assistantId/faqs",
+      "name": "captain_assistants_responses_index",
+      "parent": "app/javascript/dashboard/routes/dashboard/captain/captain.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/captain/responses/Index.vue",
+      "dependencies": [
+        "app/javascript/dashboard/components-next/feature-spotlight/FeatureSpotlightPopover.vue",
+        "app/javascript/dashboard/components-next/banner/Banner.vue",
+        "app/javascript/dashboard/components-next/captain/PageLayout.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/DeleteDialog.vue",
+        "app/javascript/dashboard/components-next/captain/assistant/ResponseCard.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/response/LimitBanner.vue",
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/components-next/captain/pageComponents/emptyStates/ResponsePageEmptyState.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/Paywall.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/BulkDeleteDialog.vue",
+        "app/javascript/dashboard/composables/useAccount.js",
+        "app/javascript/dashboard/featureFlags.js",
+        "app/javascript/dashboard/components-next/captain/pageComponents/response/CreateResponseDialog.vue",
+        "app/javascript/dashboard/components-next/input/Input.vue",
+        "app/javascript/dashboard/components-next/captain/assistant/BulkSelectBar.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "accounts/:accountId/captain/:assistantId/documents",
+      "name": "captain_assistants_documents_index",
+      "parent": "app/javascript/dashboard/routes/dashboard/captain/captain.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/captain/documents/Index.vue",
+      "dependencies": [
+        "app/javascript/dashboard/components-next/feature-spotlight/FeatureSpotlightPopover.vue",
+        "app/javascript/dashboard/components-next/captain/PageLayout.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/DeleteDialog.vue",
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/composables/usePolicy.js",
+        "app/javascript/dashboard/components-next/captain/assistant/DocumentCard.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/Paywall.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/document/RelatedResponses.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/document/LimitBanner.vue",
+        "app/javascript/dashboard/components-next/captain/assistant/DocumentFilter.vue",
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/dashboard/components/policy.vue",
+        "app/javascript/dashboard/composables/useAccount.js",
+        "app/javascript/dashboard/featureFlags.js",
+        "app/javascript/dashboard/components-next/captain/pageComponents/emptyStates/DocumentPageEmptyState.vue",
+        "app/javascript/dashboard/api/captain/document.js",
+        "app/javascript/dashboard/components-next/captain/pageComponents/document/CreateDocumentDialog.vue",
+        "app/javascript/dashboard/components-next/input/Input.vue",
+        "app/javascript/dashboard/components-next/captain/assistant/DocumentBulkActions.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "accounts/:accountId/captain/:assistantId/tools",
+      "name": "captain_tools_index",
+      "parent": "app/javascript/dashboard/routes/dashboard/captain/captain.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/captain/tools/Index.vue",
+      "dependencies": [
+        "app/javascript/dashboard/components-next/captain/pageComponents/emptyStates/CustomToolsPageEmptyState.vue",
+        "app/javascript/dashboard/composables/usePolicy.js",
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/components-next/captain/pageComponents/customTool/CustomToolCard.vue",
+        "app/javascript/dashboard/featureFlags.js",
+        "app/javascript/dashboard/components-next/captain/PageLayout.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/Paywall.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/customTool/CreateCustomToolDialog.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/DeleteDialog.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "accounts/:accountId/captain/:assistantId/scenarios",
+      "name": "captain_assistants_scenarios_index",
+      "parent": "app/javascript/dashboard/routes/dashboard/captain/captain.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/captain/assistants/scenarios/Index.vue",
+      "dependencies": [
+        "app/javascript/dashboard/components-next/captain/assistant/ScenariosCard.vue",
+        "app/javascript/dashboard/components-next/input/Input.vue",
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/shared/composables/useMessageFormatter.js",
+        "app/javascript/dashboard/components-next/captain/assistant/AddNewScenariosDialog.vue",
+        "app/javascript/dashboard/components-next/captain/assistant/BulkSelectBar.vue",
+        "app/javascript/dashboard/components-next/captain/PageLayout.vue",
+        "app/javascript/dashboard/components-next/button/Button.vue",
+        "app/javascript/dashboard/composables/useUISettings.js",
+        "app/javascript/dashboard/components-next/captain/assistant/SuggestedRules.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/settings/SettingsHeader.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "accounts/:accountId/captain/:assistantId/playground",
+      "name": "captain_assistants_playground_index",
+      "parent": "app/javascript/dashboard/routes/dashboard/captain/captain.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/captain/assistants/playground/Index.vue",
+      "dependencies": [
+        "app/javascript/dashboard/components-next/captain/PageLayout.vue",
+        "app/javascript/dashboard/components-next/captain/assistant/AssistantPlayground.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "accounts/:accountId/captain/:assistantId/inboxes",
+      "name": "captain_assistants_inboxes_index",
+      "parent": "app/javascript/dashboard/routes/dashboard/captain/captain.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/captain/assistants/inboxes/Index.vue",
+      "dependencies": [
+        "app/javascript/dashboard/components-next/captain/pageComponents/emptyStates/InboxPageEmptyState.vue",
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/featureFlags.js",
+        "app/javascript/dashboard/components-next/captain/PageLayout.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/inbox/ConnectInboxDialog.vue",
+        "app/javascript/dashboard/components-next/captain/assistant/InboxCard.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/DeleteDialog.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "accounts/:accountId/captain/:assistantId/faqs/pending",
+      "name": "captain_assistants_responses_pending",
+      "parent": "app/javascript/dashboard/routes/dashboard/captain/captain.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/captain/responses/Pending.vue",
+      "dependencies": [
+        "app/javascript/dashboard/components-next/feature-spotlight/FeatureSpotlightPopover.vue",
+        "app/javascript/dashboard/components-next/captain/PageLayout.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/DeleteDialog.vue",
+        "app/javascript/dashboard/components-next/captain/assistant/ResponseCard.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/response/LimitBanner.vue",
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/components-next/captain/pageComponents/emptyStates/ResponsePageEmptyState.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/Paywall.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/BulkDeleteDialog.vue",
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/dashboard/composables/useAccount.js",
+        "app/javascript/dashboard/featureFlags.js",
+        "app/javascript/dashboard/components-next/captain/pageComponents/response/CreateResponseDialog.vue",
+        "app/javascript/dashboard/components-next/input/Input.vue",
+        "app/javascript/dashboard/components-next/captain/assistant/BulkSelectBar.vue",
+        "app/javascript/dashboard/components-next/button/Button.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "accounts/:accountId/captain/:assistantId/settings",
+      "name": "captain_assistants_settings_index",
+      "parent": "app/javascript/dashboard/routes/dashboard/captain/captain.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/captain/assistants/settings/Settings.vue",
+      "dependencies": [
+        "app/javascript/dashboard/components-next/captain/pageComponents/assistant/settings/AssistantBasicSettingsForm.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/assistant/settings/AssistantControlItems.vue",
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/dashboard/composables/useAccount.js",
+        "app/javascript/dashboard/featureFlags.js",
+        "app/javascript/dashboard/components-next/captain/PageLayout.vue",
+        "app/javascript/dashboard/components-next/button/Button.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/assistant/settings/AssistantSystemSettingsForm.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/DeleteDialog.vue",
+        "app/javascript/dashboard/components-next/captain/pageComponents/settings/SettingsHeader.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "accounts/:accountId/captain/:navigationPath",
+      "name": "captain_assistants_index",
+      "parent": "app/javascript/dashboard/routes/dashboard/captain/captain.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/captain/pages/AssistantsIndexPage.vue",
+      "dependencies": [
+        "app/javascript/dashboard/composables/useUISettings.js",
+        "app/javascript/dashboard/components-next/spinner/Spinner.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "segments/:segmentId",
+      "name": "contacts_dashboard_segments_index",
+      "parent": "app/javascript/dashboard/routes/dashboard/contacts/routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/contacts/pages/ContactsIndex.vue",
+      "dependencies": [
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/dashboard/components-next/Contacts/Pages/ContactsList.vue",
+        "app/javascript/dashboard/api/bulkActions.js",
+        "app/javascript/dashboard/components-next/Contacts/ContactsListLayout.vue",
+        "app/javascript/dashboard/components-next/Contacts/EmptyState/ContactEmptyState.vue",
+        "app/javascript/dashboard/composables/useUISettings.js",
+        "app/javascript/dashboard/components-next/dialog/Dialog.vue",
+        "app/javascript/dashboard/helper/filterQueryGenerator.js",
+        "app/javascript/dashboard/components-next/spinner/Spinner.vue",
+        "app/javascript/dashboard/routes/dashboard/contacts/components/ContactsBulkActionBar.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "labels/:label",
+      "name": "contacts_dashboard_labels_index",
+      "parent": "app/javascript/dashboard/routes/dashboard/contacts/routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/contacts/pages/ContactsIndex.vue",
+      "dependencies": [
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/dashboard/components-next/Contacts/Pages/ContactsList.vue",
+        "app/javascript/dashboard/api/bulkActions.js",
+        "app/javascript/dashboard/components-next/Contacts/ContactsListLayout.vue",
+        "app/javascript/dashboard/components-next/Contacts/EmptyState/ContactEmptyState.vue",
+        "app/javascript/dashboard/composables/useUISettings.js",
+        "app/javascript/dashboard/components-next/dialog/Dialog.vue",
+        "app/javascript/dashboard/helper/filterQueryGenerator.js",
+        "app/javascript/dashboard/components-next/spinner/Spinner.vue",
+        "app/javascript/dashboard/routes/dashboard/contacts/components/ContactsBulkActionBar.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "active",
+      "name": "contacts_dashboard_active",
+      "parent": "app/javascript/dashboard/routes/dashboard/contacts/routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/contacts/pages/ContactsIndex.vue",
+      "dependencies": [
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/dashboard/components-next/Contacts/Pages/ContactsList.vue",
+        "app/javascript/dashboard/api/bulkActions.js",
+        "app/javascript/dashboard/components-next/Contacts/ContactsListLayout.vue",
+        "app/javascript/dashboard/components-next/Contacts/EmptyState/ContactEmptyState.vue",
+        "app/javascript/dashboard/composables/useUISettings.js",
+        "app/javascript/dashboard/components-next/dialog/Dialog.vue",
+        "app/javascript/dashboard/helper/filterQueryGenerator.js",
+        "app/javascript/dashboard/components-next/spinner/Spinner.vue",
+        "app/javascript/dashboard/routes/dashboard/contacts/components/ContactsBulkActionBar.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "segments/:segmentId",
+      "name": "contacts_edit_segment",
+      "parent": "app/javascript/dashboard/routes/dashboard/contacts/routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/contacts/pages/ContactManageView.vue",
+      "dependencies": [
+        "app/javascript/dashboard/components-next/Contacts/ContactsSidebar/ContactNotes.vue",
+        "app/javascript/dashboard/components-next/Contacts/ContactsSidebar/ContactHistory.vue",
+        "app/javascript/dashboard/components-next/Contacts/ContactsDetailsLayout.vue",
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/dashboard/components-next/Contacts/ContactsSidebar/ContactCustomAttributes.vue",
+        "app/javascript/dashboard/components-next/Contacts/ContactsSidebar/ContactMedia.vue",
+        "app/javascript/dashboard/components-next/tabbar/TabBar.vue",
+        "app/javascript/dashboard/components-next/Contacts/ContactsSidebar/ContactMerge.vue",
+        "app/javascript/dashboard/components-next/spinner/Spinner.vue",
+        "app/javascript/dashboard/components-next/Contacts/Pages/ContactDetails.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "labels/:label",
+      "name": "contacts_edit_label",
+      "parent": "app/javascript/dashboard/routes/dashboard/contacts/routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/contacts/pages/ContactManageView.vue",
+      "dependencies": [
+        "app/javascript/dashboard/components-next/Contacts/ContactsSidebar/ContactNotes.vue",
+        "app/javascript/dashboard/components-next/Contacts/ContactsSidebar/ContactHistory.vue",
+        "app/javascript/dashboard/components-next/Contacts/ContactsDetailsLayout.vue",
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/dashboard/components-next/Contacts/ContactsSidebar/ContactCustomAttributes.vue",
+        "app/javascript/dashboard/components-next/Contacts/ContactsSidebar/ContactMedia.vue",
+        "app/javascript/dashboard/components-next/tabbar/TabBar.vue",
+        "app/javascript/dashboard/components-next/Contacts/ContactsSidebar/ContactMerge.vue",
+        "app/javascript/dashboard/components-next/spinner/Spinner.vue",
+        "app/javascript/dashboard/components-next/Contacts/Pages/ContactDetails.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "live_chat",
+      "name": "campaigns_livechat_index",
+      "parent": "app/javascript/dashboard/routes/dashboard/campaigns/campaigns.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/campaigns/pages/LiveChatCampaignsPage.vue",
+      "dependencies": [
+        "app/javascript/dashboard/components-next/Campaigns/CampaignLayout.vue",
+        "app/javascript/dashboard/components-next/Campaigns/Pages/CampaignPage/CampaignList.vue",
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/components-next/Campaigns/Pages/CampaignPage/LiveChatCampaign/LiveChatCampaignDialog.vue",
+        "app/javascript/dashboard/components-next/spinner/Spinner.vue",
+        "app/javascript/dashboard/components-next/Campaigns/Pages/CampaignPage/LiveChatCampaign/EditLiveChatCampaignDialog.vue",
+        "app/javascript/dashboard/components-next/Campaigns/Pages/CampaignPage/ConfirmDeleteCampaignDialog.vue",
+        "app/javascript/dashboard/components-next/Campaigns/EmptyState/LiveChatCampaignEmptyState.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "sms",
+      "name": "campaigns_sms_index",
+      "parent": "app/javascript/dashboard/routes/dashboard/campaigns/campaigns.routes.js",
+      "entry": "app/javascript/dashboard/routes/dashboard/campaigns/pages/SMSCampaignsPage.vue",
+      "dependencies": [
+        "app/javascript/dashboard/components-next/Campaigns/CampaignLayout.vue",
+        "app/javascript/dashboard/components-next/Campaigns/Pages/CampaignPage/CampaignList.vue",
+        "app/javascript/dashboard/components-next/Campaigns/EmptyState/SMSCampaignEmptyState.vue",
+        "app/javascript/dashboard/composables/store.js",
+        "app/javascript/dashboard/components-next/spinner/Spinner.vue",
+        "app/javascript/dashboard/components-next/Campaigns/Pages/CampaignPage/ConfirmDeleteCampaignDialog.vue",
+        "app/javascript/dashboard/components-next/Campaigns/Pages/CampaignPage/SMSCampaign/SMSCampaignDialog.vue"
+      ],
+      "protected": false
+    },
+    {
+      "route": "auth/reset/password",
+      "name": "auth_reset_password",
+      "parent": "app/javascript/v3/views/routes.js",
+      "entry": "app/javascript/v3/views/auth/reset/password/Index.vue",
+      "dependencies": [
+        "app/javascript/dashboard/composables/index.js",
+        "app/javascript/shared/composables/useBranding.js",
+        "app/javascript/dashboard/components-next/button/Button.vue",
+        "app/javascript/v3/api/auth.js",
+        "app/javascript/v3/components/Form/Input.vue"
+      ],
+      "protected": false
+    }
+  ]
+}
