@@ -1,33 +1,6 @@
-# DocScan
+# FaultLens
 
-Purpose
-
-Understand inherited codebases quickly.
-
-Command
-
-/docscan
-
-Outputs
-
-- Executive Summary
-- Architecture
-- Modules
-- Data Flow
-- APIs
-- Database
-- Dependencies
-- Function Registry
-- Risk Map
-- Developer Guide
-
-Success Criteria
-
-A developer should understand the project in under 30 minutes.
-
-Current Status
-
-Setup Complete
+FaultLens is a tool for understanding inherited codebases and identifying faults, risks, and architecture characteristics.
 
 ## Standard FaultLens Workspace Setup
 
@@ -41,4 +14,3 @@ After setup:
 - `C:\faultlens` will always point to the repository root.
 - Internal tooling and Antigravity prompts can safely reference `C:\faultlens`.
 - This creates a consistent environment across all developer machines.
-
