@@ -3,7 +3,7 @@ from pathlib import Path
 
 def detect_framework(repo_path):
 
-    repo = Path(repo_path)
+    repo = Path(repo_path).expanduser().resolve()
 
     files = [x.name for x in repo.iterdir()]
 

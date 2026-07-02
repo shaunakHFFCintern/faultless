@@ -1,0 +1,21 @@
+# FaultLens Generated Evidence & Outputs
+proj/agents/docscan/evidence/
+proj/agents/docscan/outputs/
+proj/agents/docscan/COLLECTION_SUMMARY.md
+
+# Generated Markdown inventories in docs/
+proj/agents/docscan/docs/API_INVENTORY.md
+proj/agents/docscan/docs/COMPONENT_GRAPH.md
+proj/agents/docscan/docs/DEPENDENCY_INVENTORY.md
+proj/agents/docscan/docs/EVENT_INVENTORY.md
+proj/agents/docscan/docs/REPO_TREE.md
+proj/agents/docscan/docs/ROUTE_GRAPH.md
+proj/agents/docscan/docs/STATE_INVENTORY.md
+proj/agents/docscan/docs/PROJECT_RISK_REGISTER.md
+
+# Mock target codebase used for verification
+codebase/target/
+
+# Python caches
+__pycache__/
+*.pyc

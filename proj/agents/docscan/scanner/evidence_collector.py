@@ -59,7 +59,7 @@ def collect_evidence(target_path, base_dir):
             if line.startswith("AUTH:"):
                 current_author = line[5:].strip()
             elif line and current_author:
-                file_path = line
+                file_path = Path(line).as_posix()
                 if file_path not in git_owners:
                     git_owners[file_path] = {}
                 git_owners[file_path][current_author] = git_owners[file_path].get(current_author, 0) + 1
@@ -85,13 +85,13 @@ def collect_evidence(target_path, base_dir):
         # Modify dirs in-place to prune ignored directories
         dirs[:] = [d for d in dirs if d not in ignored_dirs]
         
-        rel_root = os.path.relpath(root, str(target))
+        rel_root = Path(os.path.relpath(root, str(target))).as_posix()
         if rel_root != ".":
             folder_records.add(rel_root)
             
         for file in files:
             file_path = Path(root) / file
-            rel_file_path = os.path.relpath(str(file_path), str(target))
+            rel_file_path = Path(os.path.relpath(str(file_path), str(target))).as_posix()
             ext = file_path.suffix
             
             if should_ignore(rel_file_path):
@@ -573,10 +573,14 @@ def resolve_import_path(current_file, import_str, target_root):
         
     # Check common JS/Vue extensions
     for p in test_paths:
-        for ext in ["", ".js", ".ts", ".vue", "/index.js", "/index.vue"]:
+        for ext in ["", ".js", ".ts", ".vue"]:
             target_file = Path(str(p) + ext)
             if target_file.is_file():
-                return os.path.relpath(str(target_file), str(target_root))
+                return Path(os.path.relpath(str(target_file), str(target_root))).as_posix()
+        for ext in ["index.js", "index.vue"]:
+            target_file = p / ext
+            if target_file.is_file():
+                return Path(os.path.relpath(str(target_file), str(target_root))).as_posix()
     return None
 
 def parse_imports_list(content):

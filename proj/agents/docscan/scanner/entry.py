@@ -16,7 +16,9 @@ def load_target():
 
 
 def main():
-    target = load_target()
+    target_raw = load_target()
+    target_path = Path(target_raw).expanduser().resolve()
+    target = str(target_path)
 
     print("\nLoaded Target:")
     print(repr(target))
