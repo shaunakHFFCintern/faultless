@@ -1,6 +1,6 @@
 /faults
 
-Analyze target repository frontend vulnerabilities.
+Analyze target repository frontend modular architecture and dependency health.
 
 Generate Project Risk Register.
 
@@ -15,3 +15,4 @@ Prioritize:
 Do not modify code.
 
 Output markdown.
+
