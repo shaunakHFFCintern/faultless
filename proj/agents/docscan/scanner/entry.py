@@ -17,7 +17,11 @@ def load_target():
 
 def main():
     target_raw = load_target()
-    target_path = Path(target_raw).expanduser().resolve()
+    target_path = Path(target_raw).expanduser()
+    if not target_path.is_absolute():
+        target_path = (BASE_DIR.parent.parent.parent / target_path).resolve()
+    else:
+        target_path = target_path.resolve()
     target = str(target_path)
 
     print("\nLoaded Target:")

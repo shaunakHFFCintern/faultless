@@ -25,7 +25,7 @@ When this command is run, execute the following steps in sequence:
 1. **Step 1: Evidence Collection**
    * Update the target repository configuration file (`proj/agents/docscan/config/target_repo.txt`) to point to the supplied `<target_repository_path>`.
    * Execute the existing Python evidence collection pipeline by running:
-     `python proj/agents/docscan/scanner/entry.py`
+     `python3 proj/agents/docscan/scanner/entry.py` (on macOS/Linux) or `python proj/agents/docscan/scanner/entry.py` (on Windows)
    * Ensure the following evidence inventories are generated or refreshed:
      * `repo_index.json`
      * `component_graph.json`
