@@ -253,8 +253,8 @@ def collect_evidence(target_path, base_dir):
         
         # Scan for path definitions
         # Pattern like: { path: '...', name: '...', component: ... }
-        # Match braces using regex to find properties
-        blocks = re.findall(r'\{[^{}]*?path:[^{}]*?\}', content, re.DOTALL)
+        # Match braces using regex to find properties (including up to one level of nested braces for meta: { ... })
+        blocks = re.findall(r'\{[^{]*?path:[^{}]*(?:[^{}]|\{[^{}]*\})*?\}', content, re.DOTALL)
         for block in blocks:
             path_match = re.search(r'path:\s*(?:frontendURL\()?[\'"`]([^\'"`]+)[\'"`]', block)
             name_match = re.search(r'name:\s*[\'"`]([^\'"`]+)[\'"`]', block)
