@@ -295,31 +295,76 @@ def collect_evidence(target_path, base_dir):
 
     # MODULE 3: API Inventory
     api_calls = []
-    # Match apiClient, axios, fetch, api calls
+    
+    # Load api_rules.json
+    api_rules_path = base / "config" / "api_rules.json"
+    rules = []
+    if api_rules_path.exists():
+        try:
+            with open(api_rules_path, "r", encoding="utf-8") as f:
+                rules = json.load(f).get("rules", [])
+        except Exception as e:
+            print(f"Error loading api_rules.json: {e}")
+            
+    if not rules:
+        rules = [
+            {
+                "name": "fetch",
+                "framework": "Agnostic",
+                "category": "Raw Fetch API",
+                "pattern": "\\bfetch\\(\\s*['\"`]([^'\"`]+)['\"`]",
+                "evidence_type": "fetch"
+            },
+            {
+                "name": "axios",
+                "framework": "Agnostic",
+                "category": "Axios Library",
+                "pattern": "\\b(?:axios|apiClient|api)\\.(?:get|post|put|delete|patch)\\(\\s*['\"`]([^'\"`]+)['\"`]",
+                "evidence_type": "axios"
+            }
+        ]
+
     for rel_path, content in file_contents.items():
         lines = content.splitlines()
         for idx, line in enumerate(lines):
-            # Check axios/apiClient calls
-            # Pattern: axios/apiClient.get/post/etc('url')
-            methods = ["get", "post", "put", "delete", "patch"]
-            for method in methods:
-                matches = re.findall(r'(?:axios|apiClient|api)\.' + method + r'\(\s*([\'"`])([^\'"`]+)\1', line)
-                for quote, url in matches:
-                    api_calls.append({
-                        "component": rel_path,
-                        "endpoint": url,
-                        "method": method.upper(),
-                        "call_location": f"{rel_path}:{idx + 1}"
-                    })
-            # Check fetch calls
-            fetch_matches = re.findall(r'fetch\(\s*([\'"`])([^\'"`]+)\1', line)
-            for quote, url in fetch_matches:
-                api_calls.append({
-                    "component": rel_path,
-                    "endpoint": url,
-                    "method": "GET", # default for fetch
-                    "call_location": f"{rel_path}:{idx + 1}"
-                })
+            for rule in rules:
+                try:
+                    matches = re.finditer(rule["pattern"], line)
+                    for m in matches:
+                        url = "Unknown"
+                        if m.groups():
+                            for group in m.groups():
+                                if group is not None:
+                                    url = group
+                                    break
+                        
+                        # Resolve method
+                        method = "UNKNOWN"
+                        line_lower = line.lower()
+                        if "post" in line_lower:
+                            method = "POST"
+                        elif "put" in line_lower:
+                            method = "PUT"
+                        elif "delete" in line_lower:
+                            method = "DELETE"
+                        elif "patch" in line_lower:
+                            method = "PATCH"
+                        elif "get" in line_lower:
+                            method = "GET"
+                        
+                        api_calls.append({
+                            "component": rel_path,
+                            "endpoint": url,
+                            "method": method,
+                            "call_location": f"{rel_path}:{idx + 1}",
+                            "metadata": {
+                                "framework": rule.get("framework", "Agnostic"),
+                                "category": rule.get("category", "Unknown"),
+                                "evidence_type": rule.get("evidence_type", "Unknown")
+                            }
+                        })
+                except Exception as e:
+                    pass
 
     # Group by endpoint and count calls
     endpoint_counts = {}
@@ -330,6 +375,11 @@ def collect_evidence(target_path, base_dir):
     for c in api_calls:
         key = (c["endpoint"], c["method"])
         c["call_count"] = endpoint_counts[key]
+
+    # Assign stable deterministic API_XXXX identifiers
+    api_calls = sorted(api_calls, key=lambda x: (x["endpoint"], x["method"], x["component"], x["call_location"]))
+    for i, c in enumerate(api_calls):
+        c["id"] = f"API_{i+1:04d}"
 
     with open(evidence_dir / "api_inventory.json", "w") as f:
         json.dump({"api_calls": api_calls}, f, indent=2)

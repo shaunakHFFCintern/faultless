@@ -1,0 +1,17 @@
+{
+  "high_thresholds": {
+    "lines_of_code": 300,
+    "render_tree_depth": 4,
+    "conditional_rendering_count": 10,
+    "import_count": 15,
+    "lifecycle_effect_count": 4,
+    "reactive_logic_count": 8,
+    "event_listener_count": 8
+  },
+  "medium_thresholds": {
+    "lines_of_code": 150,
+    "render_tree_depth": 3,
+    "import_count": 8,
+    "reactive_logic_count": 4
+  }
+}

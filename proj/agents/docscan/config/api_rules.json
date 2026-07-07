@@ -1,0 +1,74 @@
+{
+  "rules": [
+    {
+      "name": "fetch",
+      "framework": "Agnostic",
+      "category": "Raw Fetch API",
+      "pattern": "\\bfetch\\(\\s*['\"`]([^'\"`]+)['\"`]",
+      "evidence_type": "fetch"
+    },
+    {
+      "name": "axios",
+      "framework": "Agnostic",
+      "category": "Axios Library",
+      "pattern": "\\b(?:axios|apiClient|api)\\.(?:get|post|put|delete|patch)\\(\\s*['\"`]([^'\"`]+)['\"`]",
+      "evidence_type": "axios"
+    },
+    {
+      "name": "useQuery",
+      "framework": "React",
+      "category": "Data Fetching Hook",
+      "pattern": "\\buseQuery\\(\\s*(?:['\"`]([^'\"`]+)['\"`]|.*?queryKey:\\s*\\[\\s*['\"`]([^'\"`]+)['\"`])",
+      "evidence_type": "react-query"
+    },
+    {
+      "name": "useMutation",
+      "framework": "React",
+      "category": "Data Mutation Hook",
+      "pattern": "\\buseMutation\\(\\s*(?:['\"`]([^'\"`]+)['\"`]|.*?mutationKey:\\s*\\[\\s*['\"`]([^'\"`]+)['\"`])",
+      "evidence_type": "react-query"
+    },
+    {
+      "name": "apollo-query",
+      "framework": "React",
+      "category": "GraphQL Hook",
+      "pattern": "\\buseQuery\\(\\s*([A-Z_0-9]+_QUERY)\\b",
+      "evidence_type": "apollo-client"
+    },
+    {
+      "name": "apollo-mutation",
+      "framework": "React",
+      "category": "GraphQL Hook",
+      "pattern": "\\buseMutation\\(\\s*([A-Z_0-9]+_MUTATION)\\b",
+      "evidence_type": "apollo-client"
+    },
+    {
+      "name": "createResource",
+      "framework": "Vue",
+      "category": "Composition API Ref",
+      "pattern": "\\bcreateResource\\(\\s*(?:['\"`]([^'\"`]+)['\"`]|\\{\\s*url:\\s*['\"`]([^'\"`]+)['\"`])",
+      "evidence_type": "vue-resource"
+    },
+    {
+      "name": "createListResource",
+      "framework": "Vue",
+      "category": "Composition API Ref",
+      "pattern": "\\bcreateListResource\\(\\s*(?:['\"`]([^'\"`]+)['\"`]|\\{\\s*url:\\s*['\"`]([^'\"`]+)['\"`])",
+      "evidence_type": "vue-resource"
+    },
+    {
+      "name": "frappe-call",
+      "framework": "Vue",
+      "category": "RPC Method Call",
+      "pattern": "\\b(?:frappe\\.call|call)\\(\\s*\\{\\s*method:\\s*['\"`]([^'\"`]+)['\"`]",
+      "evidence_type": "frappe-rpc"
+    },
+    {
+      "name": "angular-http",
+      "framework": "Angular",
+      "category": "HttpClient Service",
+      "pattern": "\\bthis\\.http\\.(?:get|post|put|delete|patch)\\(\\s*['\"`]([^'\"`]+)['\"`]",
+      "evidence_type": "angular-http"
+    }
+  ]
+}
