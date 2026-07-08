@@ -1,51 +1,98 @@
-# FaultLens
+# FaultLens (v1.5.1)
 
-FaultLens is a tool for understanding inherited codebases and identifying faults, risks, and architecture characteristics.
+FaultLens is a tool for understanding inherited frontend codebases and identifying modular dependencies, state relationships, and architectural risks.
 
-## Standard FaultLens Workspace Setup
+---
 
-To configure and run the `/faultlens` pipeline in this repository (`faultless`), follow these step-by-step instructions:
+## 1. Quick Start Guide
 
-### 1. Clone the Repository
-Clone the repository and enter the directory:
-```bash
-git clone <repository-url> faultless
-cd faultless
-```
+Follow these steps to set up and run FaultLens on your local machine.
 
-### 2. Open in Antigravity
-Open the `faultless` repository folder in the Antigravity IDE workspace. The `/faultlens` and `/faults` chat commands will be automatically loaded.
+### Prerequisites:
+- **Python 3.10+** (Ensure it is added to your environment `PATH`).
+- **Antigravity IDE** (Opened at the root workspace of this repository).
 
-### 3. Run the Platform Setup Script
-Run the script corresponding to your operating system to align directory mapping:
+### Setup Flow:
 
-#### Windows
-Run the following command in PowerShell:
-```powershell
-powershell -ExecutionPolicy Bypass -File setup.ps1
-```
-*This creates a directory junction at `C:\faultlens` pointing to the repository root.*
+#### macOS
+1. **Clone the FaultLens repository**:
+   ```bash
+   git clone <repository-url> faultless
+   cd faultless
+   ```
+2. **Run the setup script**:
+   ```bash
+   chmod +x setup.sh
+   ./setup.sh
+   ```
+   *This creates a symbolic link at `~/faultlens` pointing to the repository root.*
+3. **Configure the target repository**:
+   Specify the path of the frontend codebase you want to analyze in the config file:
+   ```bash
+   echo "/Users/username/Desktop/my-project" > proj/agents/docscan/config/target_repo.txt
+   ```
+4. **Run FaultLens**:
+   In the Antigravity chat, trigger the scan command:
+   ```text
+   /faultlens
+   ```
 
-#### macOS / Linux
-Run the following commands in your terminal:
-```bash
-chmod +x setup.sh
-./setup.sh
-```
-*This creates a symbolic link at `~/faultlens` pointing to the repository root.*
+#### Windows (PowerShell)
+1. **Clone the FaultLens repository**:
+   ```powershell
+   git clone <repository-url> faultless
+   cd faultless
+   ```
+2. **Run the setup script**:
+   Open PowerShell as Administrator and execute:
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File setup.ps1
+   ```
+   *This creates a directory junction at `C:\faultlens` pointing to the repository root.*
+3. **Configure the target repository**:
+   Specify the path of the frontend codebase you want to analyze in the config file:
+   ```powershell
+   Set-Content proj/agents/docscan/config/target_repo.txt "C:\Users\Username\Desktop\my-project"
+   ```
+4. **Run FaultLens**:
+   In the Antigravity chat, trigger the scan command:
+   ```text
+   /faultlens
+   ```
 
-### 4. Verify Setup using the Test Target
-To verify that the pipeline runs successfully, run the slash command against the pre-packaged test target in the Antigravity chat:
-```text
-/faultlens codebase/test_target
-```
-*This runs the static collection script, analyzes the code, and automatically generates and opens the compiled `PROJECT_RISK_REGISTER.md` report.*
+---
 
-### 5. Run Against a Custom Local Frontend Codebase
-To audit another project, run the slash command pointing to the path of your target codebase:
-```text
-/faultlens /absolute/path/to/your/frontend/repository
-```
-*Note: Ensure the target directory contains a valid frontend project with JavaScript, TypeScript, or Vue files and a `package.json` config.*
+## 2. Selecting the Repository to Analyze
 
+FaultLens does not scan its own repository. Instead, it reads the target path from the configuration file located at:
+`proj/agents/docscan/config/target_repo.txt`
 
+### How to configure:
+The file must contain exactly one line pointing to the **absolute path** of the local frontend repository to be scanned.
+
+- **macOS / Linux Configuration**:
+  ```bash
+  echo "/Users/username/Desktop/my-project" > proj/agents/docscan/config/target_repo.txt
+  ```
+- **Windows PowerShell Configuration**:
+  ```powershell
+  Set-Content proj/agents/docscan/config/target_repo.txt "C:\Users\Username\Desktop\my-project"
+  ```
+
+---
+
+## 3. Verification & Troubleshooting
+
+Before running `/faultlens`, verify that your configuration is correct to prevent scan failures.
+
+### Checklists:
+1. **Confirm target_repo.txt Path**:
+   Verify the file contains the correct absolute path to your project.
+   - macOS: `cat proj/agents/docscan/config/target_repo.txt`
+   - Windows: `Get-Content proj/agents/docscan/config/target_repo.txt`
+2. **Ensure the Repository Exists**:
+   Ensure that the target folder has been fully cloned and is accessible on your local filesystem.
+3. **Verify package.json Presence**:
+   Ensure a `package.json` file is present in the root folder of the target path. FaultLens uses this file to discover dependencies and stacks.
+4. **Verify Platform Setup**:
+   Ensure the platform symlink (`~/faultlens` on macOS or `C:\faultlens` on Windows) is active and targets the root of the cloned `faultless` repository.

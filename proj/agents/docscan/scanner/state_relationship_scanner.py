@@ -29,9 +29,9 @@ def scan_state_relationships(target_path, base_dir, file_records, file_contents)
             })
             
         # Find React Contexts
-        react_contexts = re.findall(r'createContext\(\s*(?:[^)]*)\)', content)
+        react_contexts = re.findall(r'createContext\b', content)
         if react_contexts:
-            context_names = re.findall(r'const\s+(\w+Context)\s*=\s*createContext', content)
+            context_names = re.findall(r'const\s+(\w+Context)\s*=\s*createContext(?:<[^>]*>)?', content)
             for cname in context_names:
                 stores.append({
                     "name": cname,
@@ -66,7 +66,8 @@ def scan_state_relationships(target_path, base_dir, file_records, file_contents)
                 if pattern in content or hook_name in content:
                     is_consumer = True
             elif store["type"] == "React Context":
-                if pattern in content:
+                context_hook = "use" + store["name"].replace("Context", "")
+                if pattern in content or context_hook in content:
                     is_consumer = True
             elif store["type"] == "Vuex Store":
                 if re.search(pattern, content):
@@ -86,7 +87,8 @@ def scan_state_relationships(target_path, base_dir, file_records, file_contents)
                             cons_line = l_idx + 1
                             break
                     elif store["type"] == "React Context":
-                        if store["name"] in l_content or "useContext" in l_content:
+                        context_hook = "use" + store["name"].replace("Context", "")
+                        if store["name"] in l_content or "useContext" in l_content or context_hook in l_content:
                             cons_line = l_idx + 1
                             break
 
@@ -105,7 +107,8 @@ def scan_state_relationships(target_path, base_dir, file_records, file_contents)
                     if "commit" in content or "dispatch" in content:
                         access_type = "read-write"
                 elif store["type"] == "React Context":
-                    if "set" in content.lower():
+                    context_hook = "use" + store["name"].replace("Context", "")
+                    if re.search(r'\b(?:set|add|update|delete|mut)\w*', content, re.IGNORECASE) and context_hook in content:
                         access_type = "read-write"
                         
                 consumers.append({
